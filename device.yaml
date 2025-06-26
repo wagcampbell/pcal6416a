@@ -1,160 +1,102 @@
 config:
+  default_byte_order: BE
   register_address_type: u8
-  default_byte_order: LE
-  default_bit_order: LSB0
-  defmt_feature: defmt-03
+  defmt_feature: "defmt-03"
 
-OUTPUT_PORT0:
+INPUT:
+  type: register
+  access: RO
+  address: 0x00
+  size_bits: 16
+  fields:
+    value:
+      base: uint
+      start: 0
+      end: 16
+OUTPUT:
   type: register
   address: 0x02
-  size_bits: 8
-  reset_value: 0xFF
+  size_bits: 16
   fields:
-    O0_0:
-      base: bool
+    value:
+      base: uint
       start: 0
-      description:  Output Port 0 Pin 0. Host writes this bit to set the desired logic output level.
-    O0_1:
-      base: bool
-      start: 1
-      description:  Output Port 0 Pin 1. Host writes this bit to set the desired logic output level.
-    O0_2:
-      base: bool
-      start: 2
-      description:  Output Port 0 Pin 2. Host writes this bit to set the desired logic output level.
-    O0_3:
-      base: bool
-      start: 3
-      description:  Output Port 0 Pin 3. Host writes this bit to set the desired logic output level.
-    O0_4:
-      base: bool
-      start: 4
-      description:  Output Port 0 Pin 4. Host writes this bit to set the desired logic output level.
-    O0_5:
-      base: bool
-      start: 5
-      description:  Output Port 0 Pin 5. Host writes this bit to set the desired logic output level.
-    O0_6:
-      base: bool
-      start: 6
-      description:  Output Port 0 Pin 6. Host writes this bit to set the desired logic output level.
-    O0_7:
-      base: bool
-      start: 7
-      description:  Output Port 0 Pin 7. Host writes this bit to set the desired logic output level.
-
-OUTPUT_PORT1:
+      end: 16
+POLARITY_INVERSION:
   type: register
-  address: 0x03
-  size_bits: 8
-  reset_value: 0xFF
+  address: 0x04
+  size_bits: 16
   fields:
-    O1_0:
-      base: bool
+    value:
+      base: uint
       start: 0
-      description:  Output Port 1 Pin 0. Host writes this bit to set the desired logic output level.
-    O1_1:
-      base: bool
-      start: 1
-      description:  Output Port 1 Pin 1. Host writes this bit to set the desired logic output level.
-    O1_2:
-      base: bool
-      start: 2
-      description:  Output Port 1 Pin 2. Host writes this bit to set the desired logic output level.
-    O1_3:
-      base: bool
-      start: 3
-      description:  Output Port 1 Pin 3. Host writes this bit to set the desired logic output level.
-    O1_4:
-      base: bool
-      start: 4
-      description:  Output Port 1 Pin 4. Host writes this bit to set the desired logic output level.
-    O1_5:
-      base: bool
-      start: 5
-      description:  Output Port 1 Pin 5. Host writes this bit to set the desired logic output level.
-    O1_6:
-      base: bool
-      start: 6
-      description:  Output Port 1 Pin 6. Host writes this bit to set the desired logic output level.
-    O1_7:
-      base: bool
-      start: 7
-      description:  Output Port 1 Pin 7. Host writes this bit to set the desired logic output level.
-
-CONFIG_PORT0:
+      end: 16
+CONFIGURATION:
   type: register
   address: 0x06
-  size_bits: 8
-  reset_value: 0xFF
+  size_bits: 16
+  reset_value: 0xffff
   fields:
-    C0_0:
-      base: bool
+    value:
+      base: uint
       start: 0
-      description:  Config Port 0 Pin 0. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C0_1:
-      base: bool
-      start: 1
-      description:  Config Port 0 Pin 1. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C0_2:
-      base: bool
-      start: 2
-      description:  Config Port 0 Pin 2. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C0_3:
-      base: bool
-      start: 3
-      description:  Config Port 0 Pin 3. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C0_4:
-      base: bool
-      start: 4
-      description:  Config Port 0 Pin 4. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C0_5:
-      base: bool
-      start: 5
-      description:  Config Port 0 Pin 5. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C0_6:
-      base: bool
-      start: 6
-      description:  Config Port 0 Pin 6. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C0_7:
-      base: bool
-      start: 7
-      description:  Config Port 0 Pin 7. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-CONFIG_PORT1:
+      end: 16
+INPUT_LATCH:
   type: register
-  address: 0x07
-  size_bits: 8
-  reset_value: 0xFF
+  address: 0x44
+  size_bits: 16
   fields:
-    C1_0:
+    value:
+      base: uint
+      start: 0
+      end: 16
+PULL_UP_DOWN_ENABLE:
+  type: register
+  address: 0x46
+  size_bits: 16
+  fields:
+    value:
+      base: uint
+      start: 0
+      end: 16
+PULL_UP_DOWN_SELECTION:
+  type: register
+  address: 0x48
+  size_bits: 16
+  reset_value: 0xffff
+  fields:
+    value:
+      base: uint
+      start: 0
+      end: 16
+INTERRUPT_MASK:
+  type: register
+  address: 0x4A
+  size_bits: 16
+  reset_value: 0xffff
+  fields:
+    value:
+      base: uint
+      start: 0
+      end: 16
+INTERRUPT_STATUS:
+  type: register
+  access: RO
+  address: 0x4C
+  size_bits: 16
+  fields:
+    value:
+      base: uint
+      start: 0
+      end: 16
+OUTPUT_PORT_CONFIGURATION:
+  type: register
+  address: 0x4F
+  size_bits: 8
+  fields:
+    oden0:
       base: bool
       start: 0
-      description:  Config Port 1 Pin 0. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C1_1:
+    oden1:
       base: bool
       start: 1
-      description:  Config Port 1 Pin 1. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C1_2:
-      base: bool
-      start: 2
-      description:  Config Port 1 Pin 2. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C1_3:
-      base: bool
-      start: 3
-      description:  Config Port 1 Pin 3. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C1_4:
-      base: bool
-      start: 4
-      description:  Config Port 1 Pin 4. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C1_5:
-      base: bool
-      start: 5
-      description:  Config Port 1 Pin 5. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C1_6:
-      base: bool
-      start: 6
-      description:  Config Port 1 Pin 6. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
-    C1_7:
-      base: bool
-      start: 7
-      description:  Config Port 1 Pin 7. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
