@@ -4,6 +4,100 @@ config:
   default_bit_order: LSB0
   defmt_feature: defmt-03
 
+INPUT_PORT0:
+  type: register
+  access: RO
+  address: 0x00
+  size_bits: 8
+  fields:
+    I0_0:
+      access: RO
+      base: bool
+      start: 0
+      description: Input Port 0 Pin 0. Reflects the incoming logic level.
+    I0_1:
+      access: RO
+      base: bool
+      start: 1
+      description: Input Port 0 Pin 1. Reflects the incoming logic level.
+    I0_2:
+      access: RO
+      base: bool
+      start: 2
+      description: Input Port 0 Pin 2. Reflects the incoming logic level.
+    I0_3:
+      access: RO
+      base: bool
+      start: 3
+      description: Input Port 0 Pin 3. Reflects the incoming logic level.
+    I0_4:
+      access: RO
+      base: bool
+      start: 4
+      description: Input Port 0 Pin 4. Reflects the incoming logic level.
+    I0_5:
+      access: RO
+      base: bool
+      start: 5
+      description: Input Port 0 Pin 5. Reflects the incoming logic level.
+    I0_6:
+      access: RO
+      base: bool
+      start: 6
+      description: Input Port 0 Pin 6. Reflects the incoming logic level.
+    I0_7:
+      access: RO
+      base: bool
+      start: 7
+      description: Input Port 0 Pin 7. Reflects the incoming logic level.
+
+INPUT_PORT1:
+  type: register
+  access: RO
+  address: 0x01
+  size_bits: 8
+  fields:
+    I1_0:
+      access: RO
+      base: bool
+      start: 0
+      description: Input Port 1 Pin 0. Reflects the incoming logic level.
+    I1_1:
+      access: RO
+      base: bool
+      start: 1
+      description: Input Port 1 Pin 1. Reflects the incoming logic level.
+    I1_2:
+      access: RO
+      base: bool
+      start: 2
+      description: Input Port 1 Pin 2. Reflects the incoming logic level.
+    I1_3:
+      access: RO
+      base: bool
+      start: 3
+      description: Input Port 1 Pin 3. Reflects the incoming logic level.
+    I1_4:
+      access: RO
+      base: bool
+      start: 4
+      description: Input Port 1 Pin 4. Reflects the incoming logic level.
+    I1_5:
+      access: RO
+      base: bool
+      start: 5
+      description: Input Port 1 Pin 5. Reflects the incoming logic level.
+    I1_6:
+      access: RO
+      base: bool
+      start: 6
+      description: Input Port 1 Pin 6. Reflects the incoming logic level.
+    I1_7:
+      access: RO
+      base: bool
+      start: 7
+      description: Input Port 1 Pin 7. Reflects the incoming logic level.
+
 OUTPUT_PORT0:
   type: register
   address: 0x02
@@ -82,6 +176,82 @@ OUTPUT_PORT1:
       start: 7
       description:  Output Port 1 Pin 7. Host writes this bit to set the desired logic output level.
 
+POLARTIY_INVERSION_PORT0:
+  type: register
+  address: 0x04
+  size_bits: 8
+  fields:
+    N0_0:
+      base: bool
+      start: 0
+      description: Polarity Inversion Port 0 Pin 0. Set this bit to invert the pin's polarity.
+    N0_1:
+      base: bool
+      start: 1
+      description: Polarity Inversion Port 0 Pin 1. Set this bit to invert the pin's polarity.
+    N0_2:
+      base: bool
+      start: 2
+      description: Polarity Inversion Port 0 Pin 2. Set this bit to invert the pin's polarity.
+    N0_3:
+      base: bool
+      start: 3
+      description: Polarity Inversion Port 0 Pin 3. Set this bit to invert the pin's polarity.
+    N0_4:
+      base: bool
+      start: 4
+      description: Polarity Inversion Port 0 Pin 4. Set this bit to invert the pin's polarity.
+    N0_5:
+      base: bool
+      start: 5
+      description: Polarity Inversion Port 0 Pin 5. Set this bit to invert the pin's polarity.
+    N0_6:
+      base: bool
+      start: 6
+      description: Polarity Inversion Port 0 Pin 6. Set this bit to invert the pin's polarity.
+    N0_7:
+      base: bool
+      start: 7
+      description: Polarity Inversion Port 0 Pin 7. Set this bit to invert the pin's polarity.
+
+POLARTIY_INVERSION_PORT1:
+  type: register
+  address: 0x05
+  size_bits: 8
+  fields:
+    N1_0:
+      base: bool
+      start: 0
+      description: Polarity Inversion Port 1 Pin 0. Set this bit to invert the pin's polarity.
+    N1_1:
+      base: bool
+      start: 1
+      description: Polarity Inversion Port 1 Pin 1. Set this bit to invert the pin's polarity.
+    N1_2:
+      base: bool
+      start: 2
+      description: Polarity Inversion Port 1 Pin 2. Set this bit to invert the pin's polarity.
+    N1_3:
+      base: bool
+      start: 3
+      description: Polarity Inversion Port 1 Pin 3. Set this bit to invert the pin's polarity.
+    N1_4:
+      base: bool
+      start: 4
+      description: Polarity Inversion Port 1 Pin 4. Set this bit to invert the pin's polarity.
+    N1_5:
+      base: bool
+      start: 5
+      description: Polarity Inversion Port 1 Pin 5. Set this bit to invert the pin's polarity.
+    N1_6:
+      base: bool
+      start: 6
+      description: Polarity Inversion Port 1 Pin 6. Set this bit to invert the pin's polarity.
+    N1_7:
+      base: bool
+      start: 7
+      description: Polarity Inversion Port 1 Pin 7. Set this bit to invert the pin's polarity.
+
 CONFIG_PORT0:
   type: register
   address: 0x06
@@ -158,3 +328,533 @@ CONFIG_PORT1:
       base: bool
       start: 7
       description:  Config Port 1 Pin 7. Host clears this bit to set the pin as an output. Bit is set by default and configures the pin as an input.
+
+OUTPUT_DRIVE_STRENGTH_PORT0_0:
+  type: register
+  address: 0x40
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    CC0_0:
+      base: uint
+      start: 0
+      end: 2
+      description: Output Drive Strength Port 0 Pin 0. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC0_1:
+      base: uint
+      start: 2
+      end: 4
+      description: Output Drive Strength Port 0 Pin 1. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC0_2:
+      base: uint
+      start: 4
+      end: 6
+      description: Output Drive Strength Port 0 Pin 2. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC0_3:
+      base: uint
+      start: 6
+      end: 8
+      description: Output Drive Strength Port 0 Pin 3. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+      
+OUTPUT_DRIVE_STRENGTH_PORT0_1:
+  type: register
+  address: 0x41
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    CC0_4:
+      base: uint
+      start: 0
+      end: 2
+      description: Output Drive Strength Port 0 Pin 4. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC0_5:
+      base: uint
+      start: 2
+      end: 4
+      description: Output Drive Strength Port 0 Pin 5. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC0_6:
+      base: uint
+      start: 4
+      end: 6
+      description: Output Drive Strength Port 0 Pin 6. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC0_7:
+      base: uint
+      start: 6
+      end: 8
+      description: Output Drive Strength Port 0 Pin 7. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+
+OUTPUT_DRIVE_STRENGTH_PORT1_0:
+  type: register
+  address: 0x42
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    CC1_0:
+      base: uint
+      start: 0
+      end: 2
+      description: Output Drive Strength Port 1 Pin 0. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC1_1:
+      base: uint
+      start: 2
+      end: 4
+      description: Output Drive Strength Port 1 Pin 1. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC1_2:
+      base: uint
+      start: 4
+      end: 6
+      description: Output Drive Strength Port 1 Pin 2. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC1_3:
+      base: uint
+      start: 6
+      end: 8
+      description: Output Drive Strength Port 1 Pin 3. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+
+OUTPUT_DRIVE_STRENGTH_PORT1_1:
+  type: register
+  address: 0x43
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    CC1_4:
+      base: uint
+      start: 0
+      end: 2
+      description: Output Drive Strength Port 1 Pin 4. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC1_5:
+      base: uint
+      start: 2
+      end: 4
+      description: Output Drive Strength Port 1 Pin 5. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC1_6:
+      base: uint
+      start: 4
+      end: 6
+      description: Output Drive Strength Port 1 Pin 6. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+    CC1_7:
+      base: uint
+      start: 6
+      end: 8
+      description: Output Drive Strength Port 1 Pin 7. 00b = 0.25x, 01b = 0.5x, 10b = 0.75x or 11b = 1x.
+
+INPUT_LATCH_PORT0:
+  type: register
+  address: 0x44
+  size_bits: 8
+  reset_value: 0x00
+  fields:
+    L0_0:
+      base: bool
+      start: 0
+      description: Input Latch Port 0 Pin 0. Set to enable latch. Clear to disable latch.
+    L0_1:
+      base: bool
+      start: 1
+      description: Input Latch Port 0 Pin 1. Set to enable latch. Clear to disable latch.
+    L0_2:
+      base: bool
+      start: 2
+      description: Input Latch Port 0 Pin 2. Set to enable latch. Clear to disable latch.
+    L0_3:
+      base: bool
+      start: 3
+      description: Input Latch Port 0 Pin 3. Set to enable latch. Clear to disable latch.
+    L0_4:
+      base: bool
+      start: 4
+      description: Input Latch Port 0 Pin 4. Set to enable latch. Clear to disable latch.
+    L0_5:
+      base: bool
+      start: 5
+      description: Input Latch Port 0 Pin 5. Set to enable latch. Clear to disable latch.
+    L0_6:
+      base: bool
+      start: 6
+      description: Input Latch Port 0 Pin 6. Set to enable latch. Clear to disable latch.
+    L0_7:
+      base: bool
+      start: 7
+      description: Input Latch Port 0 Pin 7. Set to enable latch. Clear to disable latch.
+
+INPUT_LATCH_PORT1:
+  type: register
+  address: 0x45
+  size_bits: 8
+  reset_value: 0x00
+  fields:
+    L1_0:
+      base: bool
+      start: 0
+      description: Input Latch Port 1 Pin 0. Set to enable latch. Clear to disable latch.
+    L1_1:
+      base: bool
+      start: 1
+      description: Input Latch Port 1 Pin 1. Set to enable latch. Clear to disable latch.
+    L1_2:
+      base: bool
+      start: 2
+      description: Input Latch Port 1 Pin 2. Set to enable latch. Clear to disable latch.
+    L1_3:
+      base: bool
+      start: 3
+      description: Input Latch Port 1 Pin 3. Set to enable latch. Clear to disable latch.
+    L1_4:
+      base: bool
+      start: 4
+      description: Input Latch Port 1 Pin 4. Set to enable latch. Clear to disable latch.
+    L1_5:
+      base: bool
+      start: 5
+      description: Input Latch Port 1 Pin 5. Set to enable latch. Clear to disable latch.
+    L1_6:
+      base: bool
+      start: 6
+      description: Input Latch Port 1 Pin 6. Set to enable latch. Clear to disable latch.
+    L1_7:
+      base: bool
+      start: 7
+      description: Input Latch Port 1 Pin 7. Set to enable latch. Clear to disable latch.
+
+PULL_UP_PULL_DOWN_ENABLE_PORT0:
+  type: register
+  address: 0x46
+  size_bits: 8
+  reset_value: 0x00
+  fields:
+    PE0_0:
+      base: bool
+      start: 0
+      description: Pull-up/Pull-down Enable Port 0 Pin 0. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE0_1:
+      base: bool
+      start: 1
+      description: Pull-up/Pull-down Enable Port 0 Pin 1. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE0_2:
+      base: bool
+      start: 2
+      description: Pull-up/Pull-down Enable Port 0 Pin 2. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE0_3:
+      base: bool
+      start: 3
+      description: Pull-up/Pull-down Enable Port 0 Pin 3. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE0_4:
+      base: bool
+      start: 4
+      description: Pull-up/Pull-down Enable Port 0 Pin 4. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE0_5:
+      base: bool
+      start: 5
+      description: Pull-up/Pull-down Enable Port 0 Pin 5. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE0_6:
+      base: bool
+      start: 6
+      description: Pull-up/Pull-down Enable Port 0 Pin 6. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE0_7:
+      base: bool
+      start: 7
+      description: Pull-up/Pull-down Enable Port 0 Pin 7. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+
+PULL_UP_PULL_DOWN_ENABLE_PORT1:
+  type: register
+  address: 0x47
+  size_bits: 8
+  reset_value: 0x00
+  fields:
+    PE1_0:
+      base: bool
+      start: 0
+      description: Pull-up/Pull-down Enable Port 1 Pin 0. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE1_1:
+      base: bool
+      start: 1
+      description: Pull-up/Pull-down Enable Port 1 Pin 1. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE1_2:
+      base: bool
+      start: 2
+      description: Pull-up/Pull-down Enable Port 1 Pin 2. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE1_3:
+      base: bool
+      start: 3
+      description: Pull-up/Pull-down Enable Port 1 Pin 3. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE1_4:
+      base: bool
+      start: 4
+      description: Pull-up/Pull-down Enable Port 1 Pin 4. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE1_5:
+      base: bool
+      start: 5
+      description: Pull-up/Pull-down Enable Port 1 Pin 5. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE1_6:
+      base: bool
+      start: 6
+      description: Pull-up/Pull-down Enable Port 1 Pin 6. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+    PE1_7:
+      base: bool
+      start: 7
+      description: Pull-up/Pull-down Enable Port 1 Pin 7. Set to enable pull-up/pull-down resistors. Clear to disable pull-up/pull-down resistors.
+
+
+PULL_UP_PULL_DOWN_SELECTION_PORT0:
+  type: register
+  address: 0x48
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    PUD0_0:
+      base: bool
+      start: 0
+      description: Pull-up/Pull-down Selection Port 0 Pin 0. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD0_1:
+      base: bool
+      start: 1
+      description: Pull-up/Pull-down Selection Port 0 Pin 1. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD0_2:
+      base: bool
+      start: 2
+      description: Pull-up/Pull-down Selection Port 0 Pin 2. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD0_3:
+      base: bool
+      start: 3
+      description: Pull-up/Pull-down Selection Port 0 Pin 3. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD0_4:
+      base: bool
+      start: 4
+      description: Pull-up/Pull-down Selection Port 0 Pin 4. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD0_5:
+      base: bool
+      start: 5
+      description: Pull-up/Pull-down Selection Port 0 Pin 5. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD0_6:
+      base: bool
+      start: 6
+      description: Pull-up/Pull-down Selection Port 0 Pin 6. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD0_7:
+      base: bool
+      start: 7
+      description: Pull-up/Pull-down Selection Port 0 Pin 7. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+
+PULL_UP_PULL_DOWN_SELECTION_PORT1:
+  type: register
+  address: 0x49
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    PUD1_0:
+      base: bool
+      start: 0
+      description: Pull-up/Pull-down Selection Port 1 Pin 0. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD1_1:
+      base: bool
+      start: 1
+      description: Pull-up/Pull-down Selection Port 1 Pin 1. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD1_2:
+      base: bool
+      start: 2
+      description: Pull-up/Pull-down Selection Port 1 Pin 2. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD1_3:
+      base: bool
+      start: 3
+      description: Pull-up/Pull-down Selection Port 1 Pin 3. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD1_4:
+      base: bool
+      start: 4
+      description: Pull-up/Pull-down Selection Port 1 Pin 4. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD1_5:
+      base: bool
+      start: 5
+      description: Pull-up/Pull-down Selection Port 1 Pin 5. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD1_6:
+      base: bool
+      start: 6
+      description: Pull-up/Pull-down Selection Port 1 Pin 6. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+    PUD1_7:
+      base: bool
+      start: 7
+      description: Pull-up/Pull-down Selection Port 1 Pin 7. Set to select 100k pull-up resistor. Clear to select 100k pull-down resistor.
+
+INTERRUPT_MASK_PORT0:
+  type: register
+  address: 0x4A
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    M0_0:
+      base: bool
+      start: 0
+      description: Interrupt Mask Port 0 Pin 0. Set to disable interrupt. Clear to enable interrupt.
+    M0_1:
+      base: bool
+      start: 1
+      description: Interrupt Mask Port 0 Pin 1. Set to disable interrupt. Clear to enable interrupt.
+    M0_2:
+      base: bool
+      start: 2
+      description: Interrupt Mask Port 0 Pin 2. Set to disable interrupt. Clear to enable interrupt.
+    M0_3:
+      base: bool
+      start: 3
+      description: Interrupt Mask Port 0 Pin 3. Set to disable interrupt. Clear to enable interrupt.
+    M0_4:
+      base: bool
+      start: 4
+      description: Interrupt Mask Port 0 Pin 4. Set to disable interrupt. Clear to enable interrupt.
+    M0_5:
+      base: bool
+      start: 5
+      description: Interrupt Mask Port 0 Pin 5. Set to disable interrupt. Clear to enable interrupt.
+    M0_6:
+      base: bool
+      start: 6
+      description: Interrupt Mask Port 0 Pin 6. Set to disable interrupt. Clear to enable interrupt.
+    M0_7:
+      base: bool
+      start: 7
+      description: Interrupt Mask Port 0 Pin 7. Set to disable interrupt. Clear to enable interrupt.
+
+INTERRUPT_MASK_PORT1:
+  type: register
+  address: 0x4B
+  size_bits: 8
+  reset_value: 0xFF
+  fields:
+    M1_0:
+      base: bool
+      start: 0
+      description: Interrupt Mask Port 1 Pin 0. Set to disable interrupt. Clear to enable interrupt.
+    M1_1:
+      base: bool
+      start: 1
+      description: Interrupt Mask Port 1 Pin 1. Set to disable interrupt. Clear to enable interrupt.
+    M1_2:
+      base: bool
+      start: 2
+      description: Interrupt Mask Port 1 Pin 2. Set to disable interrupt. Clear to enable interrupt.
+    M1_3:
+      base: bool
+      start: 3
+      description: Interrupt Mask Port 1 Pin 3. Set to disable interrupt. Clear to enable interrupt.
+    M1_4:
+      base: bool
+      start: 4
+      description: Interrupt Mask Port 1 Pin 4. Set to disable interrupt. Clear to enable interrupt.
+    M1_5:
+      base: bool
+      start: 5
+      description: Interrupt Mask Port 1 Pin 5. Set to disable interrupt. Clear to enable interrupt.
+    M1_6:
+      base: bool
+      start: 6
+      description: Interrupt Mask Port 1 Pin 6. Set to disable interrupt. Clear to enable interrupt.
+    M1_7:
+      base: bool
+      start: 7
+      description: Interrupt Mask Port 1 Pin 7. Set to disable interrupt. Clear to enable interrupt.
+
+INTERRUPT_STATUS_PORT0:
+  type: register
+  access: RO
+  address: 0x4C
+  size_bits: 8
+  fields:
+    S0_0:
+      access: RO
+      base: bool
+      start: 0
+      description: Interrupt Status Port 0 Pin 0. True if source of interrupt.
+    S0_1:
+      access: RO
+      base: bool
+      start: 1
+      description: Interrupt Status Port 0 Pin 1. True if source of interrupt.
+    S0_2:
+      access: RO
+      base: bool
+      start: 2
+      description: Interrupt Status Port 0 Pin 2. True if source of interrupt.
+    S0_3:
+      access: RO
+      base: bool
+      start: 3
+      description: Interrupt Status Port 0 Pin 3. True if source of interrupt.
+    S0_4:
+      access: RO
+      base: bool
+      start: 4
+      description: Interrupt Status Port 0 Pin 4. True if source of interrupt.
+    S0_5:
+      access: RO
+      base: bool
+      start: 5
+      description: Interrupt Status Port 0 Pin 5. True if source of interrupt.
+    S0_6:
+      access: RO
+      base: bool
+      start: 6
+      description: Interrupt Status Port 0 Pin 6. True if source of interrupt.
+    S0_7:
+      access: RO
+      base: bool
+      start: 7
+      description: Interrupt Status Port 0 Pin 7. True if source of interrupt.
+
+INTERRUPT_STATUS_PORT1:
+  type: register
+  access: RO
+  address: 0x4D
+  size_bits: 8
+  fields:
+    S1_0:
+      access: RO
+      base: bool
+      start: 0
+      description: Interrupt Status Port 1 Pin 0. True if source of interrupt.
+    S1_1:
+      access: RO
+      base: bool
+      start: 1
+      description: Interrupt Status Port 1 Pin 1. True if source of interrupt.
+    S1_2:
+      access: RO
+      base: bool
+      start: 2
+      description: Interrupt Status Port 1 Pin 2. True if source of interrupt.
+    S1_3:
+      access: RO
+      base: bool
+      start: 3
+      description: Interrupt Status Port 1 Pin 3. True if source of interrupt.
+    S1_4:
+      access: RO
+      base: bool
+      start: 4
+      description: Interrupt Status Port 1 Pin 4. True if source of interrupt.
+    S1_5:
+      access: RO
+      base: bool
+      start: 5
+      description: Interrupt Status Port 1 Pin 5. True if source of interrupt.
+    S1_6:
+      access: RO
+      base: bool
+      start: 6
+      description: Interrupt Status Port 1 Pin 6. True if source of interrupt.
+    S1_7:
+      access: RO
+      base: bool
+      start: 7
+      description: Interrupt Status Port 1 Pin 7. True if source of interrupt.
+
+OUTPUT_PORT_CONFIG:
+  type: register
+  address: 0x4F
+  size_bits: 8
+  reset_value: 0x00
+  fields:
+    ODEN0:
+      base: bool
+      start: 0
+      description: Output Configuration Port 0. Set for open-drain. Clear for push-pull. 
+    ODEN1:
+      base: bool
+      start: 1
+      description: Output Configuration Port 1. Set for open-drain. Clear for push-pull.
